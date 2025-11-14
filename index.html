@@ -26,15 +26,15 @@ body{font-family:Inter, sans-serif; margin:0; color:var(--text); background:line
 header { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 30px 0 10px 0; margin-bottom: 20px; }
 .brand { grid-column: 1 / -1; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 20px; margin-bottom: 24px; justify-content: center; }
 .brand img{border-radius: 50%;
-  width: 80px; /* Optional: Größe anpassen */
-  height: 80px; /* Optional: Größe anpassen */
-  object-fit: cover; /* Stellt sicher, dass das Bild nicht verzerrt wird */
-filter: brightness(1.2) contrast(1.1); /* Logo etwas heller und kontrastreicher */
-  box-shadow: 0 0 80px rgba(0, 120, 215, 0.3); /* Mittelblau: #0078D7 */
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+filter: brightness(1.2) contrast(1.1);
+  box-shadow: 0 0 80px rgba(0, 120, 215, 0.3);
 }
 
 
-.brand h1{margin:0;font-size:40px;color: #003366; /* Dunkelblau */} 
+.brand h1{margin:0;font-size:40px;color: #003366;} 
 .brand p.lead{margin:0;color:var(--muted);font-size:18px;}
 
 /* NAVIGATION - volle Breite */
@@ -256,12 +256,11 @@ footer {
 
   /* Logo brillanter & intensiver */
   .brand img {
-    height: 85px; /* leicht größer für mobile Darstellung */
+    height: 85px;
     filter: brightness(1.15) contrast(1.15) saturate(1.3);
     transition: filter 0.3s ease;
   }
 
-  /* Optional: dezente Hervorhebung bei Touch/Interaktion */
   .brand img:active {
     filter: brightness(1.25) contrast(1.2) saturate(1.5);
   }
@@ -295,15 +294,12 @@ footer {
   
   /* Kontakt Mobile - WICHTIG: Jede Überschrift direkt über ihrem Inhalt */
   .contact-headers{
-    display:none; /* Überschriften werden im Mobile-Layout anders platziert */
+    display:none;
   }
   
   .contact-item{
     display:block;
   }
-  
-
-
   
   .contact-grid{
     grid-template-columns:1fr;
@@ -348,6 +344,20 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
+
+/* Desktop: alles in einer Zeile */
+.lead .mobile-break {
+  display: inline;
+}
+
+/* Mobile: Text unterhalb – Abstand stark reduziert */
+@media (max-width: 767px) {
+  .lead .mobile-break {
+    display: block;
+    margin-top: 0.05rem;
+    line-height: 1.1;
+  }
+}
 </style>
 </head>
 <body>
@@ -364,22 +374,6 @@ footer {
   Hausärztliche Gemeinschaftspraxis –
   <span class="mobile-break">mit Herz und Kompetenz</span>
 </p>
-
-<style>
-/* Desktop: alles in einer Zeile */
-.lead .mobile-break {
-  display: inline;
-}
-
-/* Mobile: Text unterhalb – Abstand stark reduziert */
-@media (max-width: 767px) {
-  .lead .mobile-break {
-    display: block;
-    margin-top: 0.05rem; /* Minimaler Abstand */
-    line-height: 1.1;    /* Kompaktere Zeilenhöhe */
-  }
-}
-</style>
       </div>
     </div>
   </header>
@@ -508,7 +502,6 @@ footer {
 
   <div class="contact-grid">
     <div class="contact-item">
-        <!-- NEU: Überschrift INNERHALB der Card -->
 <div class="card">
   <h2 style="margin-top:0; margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid #e0f4ff; color:var(--sky-600);">Kontakt & Lage</h2>
   <div style="line-height:1.3; margin-bottom:8px;">
@@ -560,14 +553,20 @@ footer {
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<!-- Weihnachts-Overlay -->
+<div class="overlay" id="overlay-weihnachten" style="display: flex;">
+  <div class="overlay-content" style="max-width: 520px;">
+    <h3 style="color: var(--sky-600); margin-bottom: 20px;">🎄 Frohe Weihnachten! 🎄</h3>
+    <p style="line-height: 1.6; margin-bottom: 24px;">
+      Die Hausarztpraxis bleibt über die Feiertage bis zum Jahreswechsel geschlossen. Ab dem <strong>05.01.2026</strong> sind wir wieder zu den gewohnten Zeiten für Sie erreichbar. 
+      <br><br>
+      Wir wünschen Ihnen eine friedvolle Weihnachtszeit und ein gesundes neues Jahr!
+    </p>
+    <button id="btn-weihnachten-close" style="background-color: #dc2626; color: white; border: none; border-radius: 8px; padding: 12px 32px; cursor: pointer; font-weight: 600; font-size: 16px;">
+      🎅 Ho Ho Ho 🎅
+    </button>
+  </div>
+</div>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner" class="cookie-banner">
@@ -635,6 +634,15 @@ footer {
 <script>
 // Footer Jahr
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Weihnachts-Overlay
+const weihnachtenOverlay = document.getElementById('overlay-weihnachten');
+const weihnachtenBtn = document.getElementById('btn-weihnachten-close');
+if (weihnachtenBtn) {
+  weihnachtenBtn.addEventListener('click', () => {
+    weihnachtenOverlay.style.display = 'none';
+  });
+}
 
 // Cookie-Banner
 const banner = document.getElementById('cookie-banner');
@@ -716,5 +724,3 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
-
-
