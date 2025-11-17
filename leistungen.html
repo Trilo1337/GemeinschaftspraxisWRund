@@ -626,30 +626,46 @@ footer {
   </section>
 
  <!-- Videosprechstunde -->
- <section id="videosprechstunde" class="leistung-section">
+<section id="videosprechstunde" class="leistung-section">
   <style>
     .video-icon {
       width: 38px;
       height: 38px;
       transform: translateY(2px);
       transition: transform 0.25s ease, filter 0.25s ease;
-      filter: none;
+      filter: drop-shadow(0 0 3px rgba(14, 165, 233, 0.4));
       touch-action: manipulation;
+      animation: pulse-glow 2s ease-in-out infinite;
     }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        filter: drop-shadow(0 0 3px rgba(14, 165, 233, 0.4));
+        transform: translateY(2px) scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.7));
+        transform: translateY(2px) scale(1.05);
+      }
+    }
+    
     .video-icon:hover,
     .video-icon:active {
-      transform: scale(1.1) translateY(2px);
-      filter: drop-shadow(0 0 4px var(--sky-600)) brightness(1.15);
+      transform: scale(1.15) translateY(2px);
+      filter: drop-shadow(0 0 10px var(--sky-600)) brightness(1.2);
+      animation: none;
     }
+    
     .video-link {
       display: inline-block;
       margin-left: 14px;
+      cursor: pointer;
     }
   </style>
   <h2 style="display: flex; align-items: center;">
     Videosprechstunde
-    <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="video-link">
-      <img src="images/kamera.jpg" alt="Videosprechstunde Symbol" class="video-icon">
+    <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="video-link" aria-label="Zur Videosprechstunde">
+      <img src="images/kamera.png" alt="Videosprechstunde Symbol" class="video-icon">
     </a>
   </h2>
   <p>Manchmal ist der Weg in die Praxis beschwerlich oder nicht notwendig. Nutzen Sie unsere Online-Videosprechstunde für eine schnelle und unkomplizierte Beratung.</p>
@@ -746,5 +762,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
