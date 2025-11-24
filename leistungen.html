@@ -533,7 +533,7 @@ footer {
 <!-- Prävention -->
   <section id="prävention" class="leistung-section">
     <h2>Prävention</h2>
-    <p>Gesundheit lässt sich nicht nur behandeln –<span class="mobile-line-break"> </span> sie lässt sich vor allem schützen. Viele Erkrankungen entwickeln sich langsam und bleiben lange unbemerkt, obwohl sie bereits messbare Spuren im Körper hinterlassen. Moderne Präventionsmedizin setzt genau hier an: Sie erkennt Risiken früh, bevor Beschwerden entstehen, und ermöglicht rechtzeitige Schritte für ein gesundes, aktives Leben. Durch gezielte Untersuchungen, Ultraschalldiagnostik und sinnvolle Laboranalysen lassen sich Probleme oft im Ansatz erkennen und langfristige Komplikationen vermeiden</p>
+    <p>Gesundheit lässt sich nicht nur behandeln –<span class="mobile-line-break"> </span> sie lässt sich vor allem schützen.<span class="mobile-line-break"> </span> Viele Erkrankungen entwickeln sich langsam und bleiben lange unbemerkt, obwohl sie bereits messbare Spuren im Körper hinterlassen. Moderne Präventionsmedizin setzt genau hier an: Sie erkennt Risiken früh, bevor Beschwerden entstehen, und ermöglicht rechtzeitige Schritte für ein gesundes, aktives Leben. Durch gezielte Untersuchungen, Ultraschalldiagnostik und sinnvolle Laboranalysen lassen sich Probleme oft im Ansatz erkennen und langfristige Komplikationen vermeiden</p>
     
     <h3>Präventionspakete</h3>
     
@@ -835,9 +835,57 @@ footer {
     }
     
     .video-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-left: 14px;
       cursor: pointer;
+      /* Mobile-optimierte Touch-Fläche */
+      min-width: 60px;
+      min-height: 60px;
+      padding: 11px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2));
+      border: 2px solid rgba(14, 165, 233, 0.4);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .video-link:hover,
+    .video-link:active {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.3));
+      border-color: rgba(14, 165, 233, 0.7);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+      transform: scale(1.05);
+    }
+    
+    /* Zusätzliche Betonung auf mobilen Geräten */
+    @media (max-width: 768px) {
+      .video-link {
+        min-width: 70px;
+        min-height: 70px;
+        padding: 15px;
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.25));
+        border: 3px solid rgba(14, 165, 233, 0.6);
+        box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
+      }
+      
+      .video-icon {
+        width: 44px;
+        height: 44px;
+      }
+      
+      /* Pulse-Animation auf Mobile verstärkt */
+      @keyframes pulse-glow {
+        0%, 100% {
+          filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.5));
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.9));
+          transform: translateY(0) scale(1.08);
+        }
+      }
     }
   </style>
   <h2 style="display: flex; align-items: center;">
@@ -887,7 +935,7 @@ footer {
       transform: scale(1.05);
     }
   </style>
-</section>
+
  </section>
   <!-- Hausbesuche -->
   <section id="hausbesuche" class="leistung-section">
@@ -941,5 +989,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
