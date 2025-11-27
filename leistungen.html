@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="de">
 <head>
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gemeinschaftspraxis W – Ihre Hausarztpraxis mit Herz und Kompetenz</title>
@@ -25,15 +24,8 @@ body{font-family:Inter, sans-serif; margin:0; color:var(--text); background:line
 /* HEADER */
 header { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 30px 0 10px 0; margin-bottom: 20px; }
 .brand { grid-column: 1 / -1; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 20px; margin-bottom: 24px; justify-content: center; }
-.brand img{border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  filter: brightness(1.2) contrast(1.1);
-  box-shadow: 0 0 80px rgba(0, 120, 215, 0.3);
-}
-
-.brand h1{margin:0;font-size:40px;color: #003366;} 
+.brand img{height:80px;width:auto;}
+.brand h1{margin:0;font-size:40px;color: #003366;}
 .brand p.lead{margin:0;color:var(--muted);font-size:18px;}
 
 /* NAVIGATION - volle Breite */
@@ -153,6 +145,69 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 .cookie-banner button { background:var(--sky-600);color:white;border:none;padding:8px 16px;border-radius:8px;font-weight:600;margin-top:10px;cursor:pointer;}
 .close-modal { position:absolute; top:12px; right:12px; border:none; background:none; font-size:20px; cursor:pointer; }
 small.note{color:var(--muted);}
+
+/* Leistungen Sections Styling */
+.leistung-section {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 22px rgba(2,132,199,0.06);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #eef6fb;
+}
+
+.leistung-section h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0f4ff;
+}
+
+.leistung-section h3 {
+  color: var(--sky-600);
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.leistung-section ul {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.leistung-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.leistung-section p {
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.intro {
+  margin-bottom: 32px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 22px rgba(2,132,199,0.06);
+  padding: 24px;
+  border: 1px solid #eef6fb;
+}
+
+.intro h1 {
+  color: var(--sky-600);
+  margin-bottom: 16px;
+  margin-top: 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0f4ff;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
 footer{margin-top:28px;padding:18px 0;border-top:1px solid #eef6fb;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 footer a{margin-left:12px;color:var(--text);text-decoration:none;}
 .social-icons{display:flex;gap:12px;align-items:center;}
@@ -238,9 +293,6 @@ footer {
     flex-direction: column;
     gap: 12px;
   }
-  .social-icons {
-    flex-direction: row;  /* ← DIESE Zeile hinzufügen! */
-  }
 }
 
 
@@ -255,17 +307,18 @@ footer {
   .brand h1{font-size:34px;}
   .brand p.lead{font-size:15px;}
 
-
-  /* Logo brillanter & intensiver */
+	  /* Logo brillanter & intensiver */
   .brand img {
-    height: 85px;
+    height: 85px; /* leicht größer für mobile Darstellung */
     filter: brightness(1.15) contrast(1.15) saturate(1.3);
     transition: filter 0.3s ease;
   }
 
+  /* Optional: dezente Hervorhebung bei Touch/Interaktion */
   .brand img:active {
     filter: brightness(1.25) contrast(1.2) saturate(1.5);
   }
+
   
   /* Navigation Mobile */
   .nav-bar-inner{padding:0 16px;flex-direction:column;gap:12px;}
@@ -293,14 +346,54 @@ footer {
   .services{grid-template-columns:1fr;gap:12px;}
   .service h3{font-size:17px;}
   .service p{font-size:14px;}
+ /* Leistungen Sections Mobile */
+   .leistung-section {
+     padding: 18px;
+     margin-bottom: 16px;
+   }
+   
+   .leistung-section h2 {
+     font-size: 22px;
+   }
+   
+   .leistung-section h3 {
+     font-size: 16px;
+   }
+   
+   .intro h1 {
+     font-size: 26px;
+   }
+   
+   .intro p {
+     font-size: 15px;
+   }
   
   /* Kontakt Mobile - WICHTIG: Jede Überschrift direkt über ihrem Inhalt */
   .contact-headers{
-    display:none;
+    display:none; /* Überschriften werden im Mobile-Layout anders platziert */
   }
   
   .contact-item{
     display:block;
+  }
+  
+  /* Überschrift vor jedem Card einfügen */
+  .contact-item:first-child::before{
+    content:"Kontakt & Lage";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
+  }
+  
+  .contact-item:last-child::before{
+    content:"Online-Rezeption";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
   }
   
   .contact-grid{
@@ -346,45 +439,24 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
-
-/* Desktop: alles in einer Zeile */
-.lead .mobile-break {
-  display: inline;
+	.mobile-line-break {
+  display: none;
 }
 
-/* Mobile: Text unterhalb – Abstand stark reduziert */
-@media (max-width: 767px) {
-  .lead .mobile-break {
+@media (max-width: 600px) {
+  .mobile-line-break {
     display: block;
-    margin-top: 0.05rem;
-    line-height: 1.1;
+    height: 0;
+    width: 100%;
   }
 }
 
-/* Schneefall-Animation */
-.snowflake {
-  position: fixed;
-  top: -10px;
-  z-index: 9999;
-  user-select: none;
-  pointer-events: none;
-  color: #fff;
-  font-size: 1em;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
-}
 </style>
 </head>
 <body>
 
 <!-- Brand außerhalb der Navigation -->
 <div class="container">
-
   <header>
     <div class="brand">
       <img src="images/logo.png" alt="Praxis W Logo" />
@@ -394,6 +466,22 @@ footer {
   Hausärztliche Gemeinschaftspraxis –
   <span class="mobile-break">mit Herz und Kompetenz</span>
 </p>
+
+<style>
+/* Desktop: alles in einer Zeile */
+.lead .mobile-break {
+  display: inline;
+}
+
+/* Mobile: Text unterhalb – Abstand stark reduziert */
+@media (max-width: 767px) {
+  .lead .mobile-break {
+    display: block;
+    margin-top: 0.05rem; /* Minimaler Abstand */
+    line-height: 1.1;    /* Kompaktere Zeilenhöhe */
+  }
+}
+</style>
       </div>
     </div>
   </header>
@@ -405,13 +493,13 @@ footer {
   <div class="nav-bar-inner">
     <div class="nav-links">
       <a href="index.html">Startseite</a>
-      <a href="#contact">Online-Rezeption</a>
+      <a href="index.html#contact">Online-Rezeption</a>
       <a href="team.html">Team</a>
       <div class="dropdown">
         <a href="leistungen.html">Leistungen</a>
         <div class="dropdown-content">
           <a href="leistungen.html#hausarztprogramm">Hausarztprogramm / HzV</a>
-		  <a href="leistungen.html#prävention">Prävention</a>
+          <a href="leistungen.html#prävention">Prävention</a>
           <a href="leistungen.html#diagnostik">Diagnostik</a>
           <a href="leistungen.html#vorsorge">Vorsorgeuntersuchungen</a>
           <a href="leistungen.html#impfungen">Impfungen</a>
@@ -424,7 +512,7 @@ footer {
         </div>
       </div>
          <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
-      <a href="#contact">Kontakt</a>
+      <a href="index.html#contact">Kontakt</a>
     </div>
     <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" rel="noopener" class="btn btn-container">Termin vereinbaren</a>
   </div>
@@ -730,6 +818,11 @@ footer {
  <!-- Videosprechstunde -->
 <section id="videosprechstunde" class="leistung-section">
   <style>
+    #videosprechstunde {
+      padding-top: 10px;
+      padding-bottom: -12px;
+    }
+    
     .video-icon {
       width: 38px;
       height: 38px;
@@ -768,18 +861,11 @@ footer {
       min-width: 60px;
       min-height: 60px;
       padding: 11px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2));
-      border: 2px solid rgba(14, 165, 233, 0.4);
-      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
       transition: all 0.3s ease;
     }
     
     .video-link:hover,
     .video-link:active {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.3));
-      border-color: rgba(14, 165, 233, 0.7);
-      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
       transform: scale(1.05);
     }
     
@@ -789,25 +875,22 @@ footer {
         min-width: 70px;
         min-height: 70px;
         padding: 15px;
-        background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.25));
-        border: 3px solid rgba(14, 165, 233, 0.6);
-        box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
       }
       
       .video-icon {
-        width: 44px;
-        height: 44px;
+        width: 52px;
+        height: 52px;
       }
       
-      /* Pulse-Animation auf Mobile verstärkt */
+      /* Pulse-Animation auf Mobile verstärkt - größeres Flimmern */
       @keyframes pulse-glow {
         0%, 100% {
-          filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.5));
-          transform: translateY(0) scale(1);
+          filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5));
+          transform: translateY(0) scale(0.95);
         }
         50% {
-          filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.9));
-          transform: translateY(0) scale(1.08);
+          filter: drop-shadow(0 0 14px rgba(14, 165, 233, 0.9));
+          transform: translateY(0) scale(1.12);
         }
       }
     }
@@ -824,7 +907,6 @@ footer {
     <li>Nachbesprechung von Befunden und Laborwerten</li>
     <li>Beratung zu leichten Beschwerden</li>
     <li>Allgemeine medizinische Fragen</li>
-    <li>Zweitmeinungen und Therapieberatung</li>
   </ul>
   <h3>So funktioniert's:</h3>
   <ul>
@@ -859,6 +941,7 @@ footer {
       transform: scale(1.05);
     }
   </style>
+</section>
 
  </section>
   <!-- Hausbesuche -->
@@ -913,6 +996,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
