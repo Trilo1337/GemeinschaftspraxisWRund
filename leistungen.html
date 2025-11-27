@@ -1024,6 +1024,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </body>
 </html>
 
+ <!-- Script mit Mobile Scroll -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile: Seite nach oben scrollen beim Laden
+    if (window.innerWidth <= 900) {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          window.scrollTo({
+            top: 250,
+            behavior: 'smooth'
+          });
+        }, 100);
+      });
+    }
+  </script>
+</body>
+</html>
 
 
 
