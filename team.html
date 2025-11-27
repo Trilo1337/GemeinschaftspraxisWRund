@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="de">
 <head>
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gemeinschaftspraxis W – Ihre Hausarztpraxis mit Herz und Kompetenz</title>
+<title>Gemeinschaftspraxis W – Team</title>
 <meta name="description" content="Gemeinschaftspraxis W – Ihre Hausarztpraxis für Vorsorge, Behandlung und persönliche Betreuung." />
 <style>
 :root{
@@ -155,11 +154,18 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 small.note{color:var(--muted);}
 footer{margin-top:28px;padding:18px 0;border-top:1px solid #eef6fb;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 footer a{margin-left:12px;color:var(--text);text-decoration:none;}
-.social-icons{display:flex;gap:12px;align-items:center;}
-.social-icons a{margin-left:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--sky-100);transition:all 0.3s ease;}
-.social-icons a:hover{background:var(--sky-600);transform:scale(1.1);}
-.social-icons a svg{width:18px;height:18px;fill:var(--sky-600);transition:fill 0.3s ease;}
-.social-icons a:hover svg{fill:white;}
+	/* Team Grid - Desktop */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;;gap:18px;margin-top:18px;}
+.team-grid .card{text-align:center;}
+.team-grid .card img{width:100%;max-width:200px;height:auto;border-radius:12px;margin-bottom:12px;}
+.team-grid .card h3{margin:8px 0 6px;font-size:18px;}
+.team-grid .card p{margin:0;color:var(--muted);font-size:14px;}
+
+/* Team Grid Mobile - untereinander */
+@media (max-width:900px){
+  .team-grid{grid-template-columns:1fr;}
+}
+
 .overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); align-items:center; justify-content:center; z-index:10000; }
 .overlay-content { background:white; border-radius:12px; padding:24px; max-width:480px; width:90%; box-shadow:0 6px 22px rgba(0,0,0,0.25); text-align:center; position:relative; }
 .overlay-content textarea { width:100%; height:90px; border:1px solid #cbd5e1; border-radius:8px; padding:10px; font-size:15px; margin-bottom:18px; resize:none; }
@@ -170,79 +176,6 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
 
 .hero .card h3 { margin-top:4px!important; }
 .hero .card p:first-of-type { margin-top:8px!important; }
-footer {
-  margin-top: 28px;
-  padding: 18px 0;
-  border-top: 1px solid #eef6fb;
-  color: var(--muted);
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 12px;
-}
-
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--sky-100);
-  transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-  background: var(--sky-600);
-  transform: scale(1.1);
-}
-
-.social-icons a svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--sky-600);
-  transition: fill 0.3s ease;
-}
-
-.social-icons a:hover svg {
-  fill: white;
-}
-
-.legal-links a {
-  margin-left: 12px;
-  color: var(--text);
-  text-decoration: none;
-}
-
-/* Mobile Layout */
-@media (max-width: 600px) {
-  footer {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-    font-size: 12px;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .social-icons {
-    flex-direction: row;  /* ← DIESE Zeile hinzufügen! */
-  }
-}
-
 
 /* Mobile Optimierung */
 @media (max-width:900px){
@@ -255,17 +188,18 @@ footer {
   .brand h1{font-size:34px;}
   .brand p.lead{font-size:15px;}
 
-
-  /* Logo brillanter & intensiver */
+	  /* Logo brillanter & intensiver */
   .brand img {
-    height: 85px;
+    height: 85px; /* leicht größer für mobile Darstellung */
     filter: brightness(1.15) contrast(1.15) saturate(1.3);
     transition: filter 0.3s ease;
   }
 
+  /* Optional: dezente Hervorhebung bei Touch/Interaktion */
   .brand img:active {
     filter: brightness(1.25) contrast(1.2) saturate(1.5);
   }
+
   
   /* Navigation Mobile */
   .nav-bar-inner{padding:0 16px;flex-direction:column;gap:12px;}
@@ -296,11 +230,30 @@ footer {
   
   /* Kontakt Mobile - WICHTIG: Jede Überschrift direkt über ihrem Inhalt */
   .contact-headers{
-    display:none;
+    display:none; /* Überschriften werden im Mobile-Layout anders platziert */
   }
   
   .contact-item{
     display:block;
+  }
+  
+  /* Überschrift vor jedem Card einfügen */
+  .contact-item:first-child::before{
+    content:"Kontakt & Lage";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
+  }
+  
+  .contact-item:last-child::before{
+    content:"Online-Rezeption";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
   }
   
   .contact-grid{
@@ -346,45 +299,12 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
-
-/* Desktop: alles in einer Zeile */
-.lead .mobile-break {
-  display: inline;
-}
-
-/* Mobile: Text unterhalb – Abstand stark reduziert */
-@media (max-width: 767px) {
-  .lead .mobile-break {
-    display: block;
-    margin-top: 0.05rem;
-    line-height: 1.1;
-  }
-}
-
-/* Schneefall-Animation */
-.snowflake {
-  position: fixed;
-  top: -10px;
-  z-index: 9999;
-  user-select: none;
-  pointer-events: none;
-  color: #fff;
-  font-size: 1em;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
-}
 </style>
 </head>
 <body>
 
 <!-- Brand außerhalb der Navigation -->
 <div class="container">
-
   <header>
     <div class="brand">
       <img src="images/logo.png" alt="Praxis W Logo" />
@@ -394,11 +314,26 @@ footer {
   Hausärztliche Gemeinschaftspraxis –
   <span class="mobile-break">mit Herz und Kompetenz</span>
 </p>
+
+<style>
+/* Desktop: alles in einer Zeile */
+.lead .mobile-break {
+  display: inline;
+}
+
+/* Mobile: Text unterhalb – Abstand stark reduziert */
+@media (max-width: 767px) {
+  .lead .mobile-break {
+    display: block;
+    margin-top: 0.05rem; /* Minimaler Abstand */
+    line-height: 1.1;    /* Kompaktere Zeilenhöhe */
+  }
+}
+</style>
       </div>
     </div>
   </header>
 </div>
-
 
 <!-- Navigation mit voller Breite -->
 <nav class="nav-bar">
@@ -411,7 +346,7 @@ footer {
         <a href="leistungen.html">Leistungen</a>
         <div class="dropdown-content">
           <a href="leistungen.html#hausarztprogramm">Hausarztprogramm / HzV</a>
-		  <a href="leistungen.html#prävention">Prävention</a>
+			<a href="leistungen.html#prävention">Prävention</a>
           <a href="leistungen.html#diagnostik">Diagnostik</a>
           <a href="leistungen.html#vorsorge">Vorsorgeuntersuchungen</a>
           <a href="leistungen.html#impfungen">Impfungen</a>
@@ -420,17 +355,17 @@ footer {
           <a href="leistungen.html#wundversorgung">Wundversorgung</a>
           <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
           <a href="leistungen.html#hausbesuche">Hausbesuche</a>
-	  <a href="https://praxisw.base44.app/" target="_blank" rel="noopener noreferrer">Praxis-App</a>
+		  <a href="https://praxisw.base44.app/" target="_blank" rel="noopener noreferrer">Praxis-App</a>
         </div>
       </div>
-         <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
+      <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
       <a href="index.html#contact">Kontakt</a>
     </div>
     <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" rel="noopener" class="btn btn-container">Termin vereinbaren</a>
   </div>
 </nav>
 
- <div class="container">
+  <div class="container">
     <!-- Ärzte -->
     <section style="margin-top:24px">
       <div class="card">
@@ -479,12 +414,6 @@ footer {
   </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
