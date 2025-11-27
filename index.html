@@ -33,6 +33,14 @@ header { display: grid; grid-template-columns: 1fr auto; align-items: center; ga
   box-shadow: 0 0 80px rgba(0, 120, 215, 0.3);
 }
 
+/* Desktop: logopc.png anzeigen */
+.logo-mobile {
+  display: none;
+}
+.logo-desktop {
+  display: block;
+}
+
 .brand h1{margin:0;font-size:40px;color: #003366;} 
 .brand p.lead{margin:0;color:var(--muted);font-size:18px;}
 
@@ -239,7 +247,7 @@ footer {
     gap: 12px;
   }
   .social-icons {
-    flex-direction: row;  /* ← DIESE Zeile hinzufügen! */
+    flex-direction: row;
   }
 }
 
@@ -266,6 +274,14 @@ footer {
 
   .brand img:active {
     filter: brightness(1.25) contrast(1.2) saturate(1.5);
+  }
+  
+  /* Mobile: logo.png anzeigen */
+  .logo-desktop {
+    display: none;
+  }
+  .logo-mobile {
+    display: block;
   }
   
   /* Navigation Mobile */
@@ -388,7 +404,8 @@ footer {
 
   <header>
     <div class="brand">
-      <img src="images/logo.png" alt="Praxis W Logo" />
+      <img src="images/logopc.png" alt="Praxis W Logo" class="logo-desktop" />
+      <img src="images/logo.png" alt="Praxis W Logo" class="logo-mobile" />
       <div>
         <h1>Gemeinschaftspraxis W</h1>
         <p class="lead"> 
@@ -399,6 +416,9 @@ footer {
     </div>
   </header>
 </div>
+
+</body>
+</html>
 
 
 <!-- Navigation mit voller Breite -->
@@ -779,6 +799,7 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
 
 
 
