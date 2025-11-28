@@ -1024,38 +1024,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </body>
 </html>
 
- <!-- Script mit Mobile Scroll -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Mobile: Seite nach oben scrollen beim Laden
-    if (window.innerWidth <= 900) {
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          window.scrollTo({
-            top: 550,
-            behavior: 'smooth'
-          });
-        }, 100);
-      });
+ // Mobile: Seite nach oben scrollen beim Laden - aber nur wenn kein Anker vorhanden ist
+if (window.innerWidth <= 900) {
+  window.addEventListener('load', function() {
+    // Prüfen, ob ein Anker-Link in der URL ist (z.B. #videosprechstunde)
+    if (!window.location.hash) {
+      setTimeout(function() {
+        window.scrollTo({
+          top: 550,
+          behavior: 'smooth'
+        });
+      }, 100);
     }
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  });
+}
