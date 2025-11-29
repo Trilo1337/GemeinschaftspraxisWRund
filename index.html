@@ -595,11 +595,10 @@ footer {
     <p style="line-height: 1.6; margin-bottom: 24px; color: var(--muted);">
       Buchen Sie Ihren Termin bequem online über Doctolib. In dringenden Fällen erreichen Sie uns selbstverständlich auch telefonisch oder per E-Mail.
     </p>
-  <style>
-#btn-termin-doctolib:hover,
-#btn-termin-doctolib:active,
-#btn-termin-doctolib:focus {
+<style>
+#btn-termin-doctolib {
   background-color: #f0f9ff !important;
+  pointer-events: auto;
 }
 </style>
 
@@ -722,14 +721,6 @@ if (btnTerminDoctolib) {
   btnTerminDoctolib.addEventListener('click', () => {
     window.open('https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel', '_blank');
     overlayTermin.style.display = 'none';
-  });
-  
-  // Hover-Effekt
-  btnTerminDoctolib.addEventListener('mouseenter', () => {
-    btnTerminDoctolib.style.backgroundColor = 'var(--sky-700)';
-  });
-  btnTerminDoctolib.addEventListener('mouseleave', () => {
-    btnTerminDoctolib.style.backgroundColor = 'var(--sky-600)';
   });
 }
 
@@ -876,6 +867,7 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
 
 
 
