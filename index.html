@@ -27,13 +27,16 @@ header { display: grid; grid-template-columns: 1fr auto; align-items: center; ga
 .brand { grid-column: 1 / -1; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 20px; margin-bottom: 24px; justify-content: center; }
 .brand img{
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 100px;                              /* ← VERGRÖSSERT (war 80px) */
+  height: 100px;                             /* ← VERGRÖSSERT (war 80px) */
   object-fit: cover;
-  filter: brightness(1.05) contrast(1.05);  /* ← REDUZIERT */
+  filter: none;                              /* ← ENTFERNT (war brightness + contrast) */
   box-shadow: 0 0 80px rgba(0, 120, 215, 0.3);
-  image-rendering: -webkit-optimize-contrast;  /* ← NEU */
-  image-rendering: crisp-edges;                /* ← NEU */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);                  /* ← NEU (GPU-Beschleunigung) */
+  -webkit-backface-visibility: hidden;       /* ← NEU (Anti-Aliasing) */
+  backface-visibility: hidden;               /* ← NEU (Anti-Aliasing) */
 }
 
 /* Desktop: logopc.png anzeigen */
@@ -838,6 +841,7 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
 
 
 
