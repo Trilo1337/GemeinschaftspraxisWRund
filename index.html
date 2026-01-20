@@ -430,31 +430,38 @@ footer a{margin-left:0;}
 <nav class="nav-bar">
   <div class="nav-bar-inner">
     <div class="nav-links">
-      <a href="index.html">Startseite</a>
-      <a href="#contact">Online-Rezeption</a>
-      <a href="team.html">Team</a>
-      <div class="dropdown-content">
-		  <a href="team.html#offene-stellen">Offene Stellen</a>
-		    </div>
-  </div>
-        <a href="leistungen.html">Leistungen</a>
-        <div class="dropdown-content">
-          <a href="leistungen.html#hausarztprogramm">Hausarztprogramm / HzV</a>
-		  <a href="leistungen.html#prävention">Prävention</a>
-          <a href="leistungen.html#diagnostik">Diagnostik</a>
-          <a href="leistungen.html#vorsorge">Vorsorgeuntersuchungen</a>
-          <a href="leistungen.html#impfungen">Impfungen</a>
-          <a href="leistungen.html#reisemedizin">Reisemedizin</a>
-          <a href="leistungen.html#dmp">DMP</a>
-          <a href="leistungen.html#wundversorgung">Wundversorgung</a>
-          <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
-          <a href="leistungen.html#hausbesuche">Hausbesuche</a>
-	  
-        </div>
-      </div>
-         <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
-      <a href="#contact">Kontakt</a>
+  <a href="index.html">Startseite</a>
+  <a href="#contact">Online-Rezeption</a>
+
+  <!-- Team mit Dropdown -->
+  <div class="dropdown">
+    <a href="team.html">Team</a>
+    <div class="dropdown-content">
+      <a href="team.html#offene-stellen">Offene Stellen</a>
     </div>
+  </div>
+
+  <!-- Leistungen mit Dropdown (unverändert) -->
+  <div class="dropdown">
+    <a href="leistungen.html">Leistungen</a>
+    <div class="dropdown-content">
+      <a href="leistungen.html#hausarztprogramm">Hausarztprogramm / HzV</a>
+      <a href="leistungen.html#prävention">Prävention</a>
+      <a href="leistungen.html#diagnostik">Diagnostik</a>
+      <a href="leistungen.html#vorsorge">Vorsorgeuntersuchungen</a>
+      <a href="leistungen.html#impfungen">Impfungen</a>
+      <a href="leistungen.html#reisemedizin">Reisemedizin</a>
+      <a href="leistungen.html#dmp">DMP</a>
+      <a href="leistungen.html#wundversorgung">Wundversorgung</a>
+      <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
+      <a href="leistungen.html#hausbesuche">Hausbesuche</a>
+    </div>
+  </div>
+
+  <!-- Einzelner Link zur Videosprechstunde bleibt -->
+  <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
+  <a href="#contact">Kontakt</a>
+</div>
     <a href="#" id="btn-termin-oeffnen" class="btn btn-container">Termin vereinbaren</a>
   </div>
 </nav>
@@ -933,6 +940,7 @@ if (closeVideo) {
 </div>
 </body>
 </html>
+
 
 
 
