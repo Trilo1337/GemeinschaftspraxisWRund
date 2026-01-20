@@ -851,10 +851,66 @@ window.addEventListener('click', e => {
   if (e.target === overlayNotfall) overlayNotfall.style.display = 'none';
 });
 
+
+// Video Modal Logik
+const videoThumbnail = document.getElementById('video-thumbnail');
+const videoModal = document.getElementById('video-modal');
+const closeVideo = document.getElementById('close-video');
+const modalVideo = document.getElementById('modal-video');
+const praxisVideo = document.getElementById('praxis-video');
+
+// Video Thumbnail hover effect
+if (videoThumbnail) {
+  videoThumbnail.addEventListener('mouseenter', () => {
+    videoThumbnail.style.transform = 'scale(1.05)';
+  });
+  
+  videoThumbnail.addEventListener('mouseleave', () => {
+    videoThumbnail.style.transform = 'scale(1)';
+  });
+  
+  // Öffne Modal beim Klick
+  videoThumbnail.addEventListener('click', () => {
+    videoModal.style.display = 'flex';
+    modalVideo.play();
+    praxisVideo.pause(); // Thumbnail-Video pausieren
+  });
+}
+
+// Schließe Modal
+if (closeVideo) {
+  closeVideo.addEventListener('click', () => {
+    videoModal.style.display = 'none';
+    modalVideo.pause();
+    modalVideo.currentTime = 0; // Video zurücksetzen
+  });
+}
+
+// Schließe bei Klick außerhalb
+window.addEventListener('click', (e) => {
+  if (e.target === videoModal) {
+    videoModal.style.display = 'none';
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+  }
+});
+
+// Hover-Effekt für Schließen-Button
+if (closeVideo) {
+  closeVideo.addEventListener('mouseenter', () => {
+    closeVideo.style.background = 'rgba(255,255,255,0.3)';
+  });
+  
+  closeVideo.addEventListener('mouseleave', () => {
+    closeVideo.style.background = 'rgba(255,255,255,0.2)';
+  });
+}
+
 </script>
 </div>
 </body>
 </html>
+
 
 
 
