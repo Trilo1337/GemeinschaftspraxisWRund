@@ -563,7 +563,6 @@ function submitBewerbung(event) {
     arbeitszeit: document.getElementById('arbeitszeit').value
   };
   
-  // E-Mail-Text erstellen
   const emailBody = `Sehr geehrte Damen und Herren,
 
 hiermit bewerbe ich mich bei Ihnen.
@@ -577,24 +576,23 @@ Geburtsdatum: ${formData.geburtsdatum}
 Geschlecht: ${formData.geschlecht}
 Bewerbung als: ${formData.position}
 Berufserfahrung in Jahren: ${formData.berufserfahrung}
-Gewünschte Arbeitszeit pro Woche (Stunden): ${formData.arbeitszeit}`;
+Gewünschte Arbeitszeit pro Woche (Stunden/Tage), Anmerkungen: ${formData.arbeitszeit}`;
   
-  // E-Mail-Parameter
   const emailTo = 'info@gemeinschaftspraxis-w.example';
   const emailSubject = 'Bewerbung';
-  
-  // mailto-Link erstellen
   const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   
-  // E-Mail-Programm öffnen
-  window.location.href = mailtoLink;
-  
-  // Optional: Bestätigungsnachricht
-  setTimeout(() => {
-    alert('Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die E-Mail ab.');
-    closeBewerbung();
-  }, 500);
+  if (confirm('Bewerbung wird an info@gemeinschaftspraxis-w.example geöffnet.\n\nLebenslauf als Anhang hinzufügen?\n\n[OK] = GMX Mail öffnen')) {
+    const link = document.createElement('a');
+    link.href = mailtoLink;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => closeBewerbung(), 500);
+  }
 }
+
 
 // Mobile: Seite nach oben scrollen beim Laden
 if (window.innerWidth <= 900) {
@@ -610,6 +608,7 @@ if (window.innerWidth <= 900) {
 </script>
 </body>
 </html>
+
 
 
 
