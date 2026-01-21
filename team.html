@@ -458,9 +458,17 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
       </div>
       
       <div class="form-group">
-        <label for="geburtsdatum">Geburtsdatum *</label>
-        <input type="date" id="geburtsdatum" name="geburtsdatum" required>
-      </div>
+  <label for="geburtsdatum">Geburtsdatum *</label>
+  <input
+    type="text"
+    id="geburtsdatum"
+    name="geburtsdatum"
+    required
+    placeholder="z.B. 31.12.1990"
+    inputmode="numeric"
+  >
+</div>
+
       
       <div class="form-group">
         <label for="geschlecht">Geschlecht *</label>
@@ -583,4 +591,5 @@ if (window.innerWidth <= 900) {
 </script>
 </body>
 </html>
+
 
