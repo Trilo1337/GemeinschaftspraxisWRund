@@ -582,15 +582,13 @@ Gewünschte Arbeitszeit pro Woche (Stunden/Tage), Anmerkungen: ${formData.arbeit
   const emailSubject = 'Bewerbung';
   const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   
-  if (confirm('Bewerbung wird an info@gemeinschaftspraxis-w.example geöffnet.\n\nLebenslauf als Anhang hinzufügen?\n\n[OK] = Standard Mail-App öffnen')) {
-    const link = document.createElement('a');
-    link.href = mailtoLink;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setTimeout(() => closeBewerbung(), 500);
-  }
+ // ✅ LÖSUNG: Direkt öffnen ohne confirm-Dialog
+  window.location.href = mailtoLink;
+  
+  // Formular schließen nach kurzer Verzögerung
+  setTimeout(() => {
+    closeBewerbung();
+  }, 500);
 }
 
 
@@ -608,6 +606,7 @@ if (window.innerWidth <= 900) {
 </script>
 </body>
 </html>
+
 
 
 
