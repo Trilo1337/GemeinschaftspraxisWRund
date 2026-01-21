@@ -582,7 +582,7 @@ Gewünschte Arbeitszeit pro Woche (Stunden/Tage), Anmerkungen: ${formData.arbeit
   const emailSubject = 'Bewerbung';
   const mailtoLink = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   
-  if (confirm('Bewerbung wird an info@gemeinschaftspraxis-w.example geöffnet.\n\nLebenslauf als Anhang hinzufügen?\n\n[OK] = GMX Mail öffnen')) {
+  if (confirm('Bewerbung wird an info@gemeinschaftspraxis-w.example geöffnet.\n\nLebenslauf als Anhang hinzufügen?\n\n[OK] = Standard Mail-App öffnen')) {
     const link = document.createElement('a');
     link.href = mailtoLink;
     link.style.display = 'none';
@@ -608,6 +608,7 @@ if (window.innerWidth <= 900) {
 </script>
 </body>
 </html>
+
 
 
 
