@@ -805,13 +805,15 @@ if (!localStorage.getItem('cookiesAccepted')) banner.style.display = 'block';
 acceptBtn.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); banner.style.display = 'none'; });
 
 // Overlay Logik
-function setupOverlay(btnId, overlayId, closeId, textId, mailId, waId, defaultText, subject){
+function setupOverlay(btnId, overlayId, closeId, textId, mailId, waId, defaultText, subject, customEmail){
   const btn = document.getElementById(btnId);
   const overlay = document.getElementById(overlayId);
   const close = document.getElementById(closeId);
   const textarea = document.getElementById(textId);
   const mail = document.getElementById(mailId);
   const wa = document.getElementById(waId);
+  
+  const emailAddress = customEmail || 'info@gemeinschaftspraxis-w.example';
 
   if(btn) btn.addEventListener('click', () => { overlay.style.display = 'flex'; });
   if(close) close.addEventListener('click', () => { overlay.style.display = 'none'; });
@@ -820,14 +822,26 @@ function setupOverlay(btnId, overlayId, closeId, textId, mailId, waId, defaultTe
 
   if(mail && defaultText){
     mail.addEventListener('click', (e) => {
-      e.preventDefault(); // NEU: Verhindert Standard-Link-Verhalten
+      e.preventDefault();
       const text = textarea.value.trim();
       if (!text) { alert('Bitte geben Sie Ihre Angabe ein'); return; }
       const encoded = encodeURIComponent(defaultText.replace('${text}', text));
-      window.location.href = `mailto:info@gemeinschaftspraxis-w.example?subject=${encodeURIComponent(subject)}&body=${encoded}`; // GEÄNDERT: window.location.href statt mail.href
-      overlay.style.display = 'none'; // NEU: Overlay schließen
+      window.location.href = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encoded}`;
+      overlay.style.display = 'none';
     });
   }
+  
+  if(wa && defaultText){
+    wa.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = textarea.value.trim();
+      if (!text) { alert('Bitte geben Sie Ihre Angabe ein'); return; }
+      const encoded = encodeURIComponent(defaultText.replace('${text}', text));
+      window.open(`https://wa.me/4912345678?text=${encoded}`, '_blank');
+      overlay.style.display = 'none';
+    });
+  }
+}
   
   if(wa && defaultText){
     wa.addEventListener('click', (e) => {
@@ -851,7 +865,8 @@ setupOverlay('btn-ueberweisung','overlay-ueberweisung','close-ueberweisung','tex
 
 setupOverlay('btn-befund','overlay-befund','close-befund','text-befund','befund-mail',null,
 'Guten Tag, ich benötige folgende Befunde:\n\n${text}\n\nMit freundlichen Grüßen\nVorname Nachname.\nBitte Geburtsdatum zur Verifizierung mit angeben.',
-'Befundanforderung');
+'Befundanforderung',
+'testpraxis@tutanota.de');
 
 const btnNotfall = document.getElementById('btn-notfall');
 const overlayNotfall = document.getElementById('overlay-notfall');
@@ -940,6 +955,7 @@ if (closeVideo) {
 </div>
 </body>
 </html>
+
 
 
 
