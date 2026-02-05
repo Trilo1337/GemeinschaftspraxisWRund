@@ -842,26 +842,16 @@ function setupOverlay(btnId, overlayId, closeId, textId, mailId, waId, defaultTe
     });
   }
 }
-  
-  if(wa && defaultText){
-    wa.addEventListener('click', (e) => {
-      e.preventDefault(); // NEU: Verhindert Standard-Link-Verhalten
-      const text = textarea.value.trim();
-      if (!text) { alert('Bitte geben Sie Ihre Angabe ein'); return; }
-      const encoded = encodeURIComponent(defaultText.replace('${text}', text));
-      window.open(`https://wa.me/4912345678?text=${encoded}`, '_blank'); // GEÄNDERT: window.open statt wa.href
-      overlay.style.display = 'none'; // NEU: Overlay schließen
-    });
-  }
-}
 
 setupOverlay('btn-rezept','overlay-rezept','close-rezept','text-rezept','rezept-mail','rezept-whatsapp',
 'Guten Tag, ich benötige ein Rezept für folgende Medikamente:\n\n${text}\n\nMit freundlichen Grüßen\nVorname Nachname.\nBitte Geburtsdatum zur Verifizierung mit angeben.',
-'Rezeptanforderung');
+'Rezeptanforderung',
+undefined);
 
 setupOverlay('btn-ueberweisung','overlay-ueberweisung','close-ueberweisung','text-ueberweisung','ueberweisung-mail','ueberweisung-whatsapp',
 'Guten Tag, ich benötige folgende Überweisung:\n\n${text}\n\nMit freundlichen Grüßen\nVorname Nachname.\nBitte Geburtsdatum zur Verifizierung mit angeben.',
-'Überweisungsanforderung');
+'Überweisungsanforderung',
+undefined);
 
 setupOverlay('btn-befund','overlay-befund','close-befund','text-befund','befund-mail',null,
 'Guten Tag, ich benötige folgende Befunde:\n\n${text}\n\nMit freundlichen Grüßen\nVorname Nachname.\nBitte Geburtsdatum zur Verifizierung mit angeben.',
@@ -955,6 +945,7 @@ if (closeVideo) {
 </div>
 </body>
 </html>
+
 
 
 
