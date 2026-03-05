@@ -163,8 +163,6 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 .contact-headers h2{margin:0; font-size:1.5rem;}
 .contact-headers h2:nth-child(2){justify-self:start;}
 .contact-item{display:contents;}
-.contact-item:first-child { order: 2; }
-.contact-item:last-child { order: 1; }
 .rezept-btn { display:flex;align-items:center;justify-content:center; width:100%; color:white; border-radius:10px; text-decoration:none; font-weight:600; background:var(--sky-600); border:2px solid var(--sky-600); flex:1; transition:all 0.2s ease; margin-bottom:10px; padding:12px 0; }
 .rezept-btn:hover { background:var(--sky-700); }
 .cookie-banner { position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid #dbeafe;box-shadow:0 4px 18px rgba(2,132,199,0.1);padding:18px;border-radius:12px;display:none;max-width:480px;z-index:9999;font-size:14px;}
@@ -335,7 +333,7 @@ footer {
     display:none;
   }
   
-  .contact-item{
+.contact-item{
     display:block;
   }
   
@@ -343,6 +341,14 @@ footer {
     display:flex;
     flex-direction:column;
     gap:32px;
+  }
+
+  .contact-grid .contact-item:first-child{
+    order:1;
+  }
+  
+  .contact-grid .contact-item:last-child{
+    order:2;
   }
   
   
@@ -949,6 +955,7 @@ if (closeVideo) {
 </script>
 </body>
 </html>
+
 
 
 
