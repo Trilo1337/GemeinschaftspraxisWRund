@@ -531,7 +531,7 @@ footer {
       <a href="index.html#contact">Online-Rezeption</a>
       <a href="team.html">Praxis</a>
       <div class="dropdown">
-        <a href="leistungen.html">Leistungen</a>
+        <a href="leistungen.html#leistungen-intro">Leistungen</a>
         <div class="dropdown-content">
           <a href="leistungen.html#hausarztprogramm">Hausarztprogramm / HzV</a>
           <a href="leistungen.html#prävention">Prävention</a>
@@ -561,7 +561,7 @@ footer {
 <!-- Content -->
 <div class="container">
 
-  <div class="intro">
+  <div class="intro" id="leistungen-intro">
     <h1>Unsere Leistungen</h1>
     <p>Umfassende medizinische Versorgung – von der Prävention bis zur Behandlung</p>
   </div>
@@ -1028,16 +1028,7 @@ footer {
 </div>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-	// Auf Mobile automatisch zur Überschrift scrollen
-if (window.innerWidth <= 900) {
-  window.scrollTo({ top: 0, behavior: 'instant' });
-  setTimeout(() => {
-    const intro = document.querySelector('.intro');
-    if (intro) {
-      intro.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, 100);
-}
+	
 // Smooth Scrolling für Anker-Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -1074,6 +1065,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
 
