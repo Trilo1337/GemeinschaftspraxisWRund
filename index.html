@@ -163,6 +163,8 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 .contact-headers h2{margin:0; font-size:1.5rem;}
 .contact-headers h2:nth-child(2){justify-self:start;}
 .contact-item{display:contents;}
+.contact-item:first-child { order: 2; }
+.contact-item:last-child { order: 1; }
 .rezept-btn { display:flex;align-items:center;justify-content:center; width:100%; color:white; border-radius:10px; text-decoration:none; font-weight:600; background:var(--sky-600); border:2px solid var(--sky-600); flex:1; transition:all 0.2s ease; margin-bottom:10px; padding:12px 0; }
 .rezept-btn:hover { background:var(--sky-700); }
 .cookie-banner { position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid #dbeafe;box-shadow:0 4px 18px rgba(2,132,199,0.1);padding:18px;border-radius:12px;display:none;max-width:480px;z-index:9999;font-size:14px;}
@@ -343,9 +345,6 @@ footer {
     gap:32px;
   }
   
-  /* Online-Rezeption kommt zuerst */
-  .contact-item:first-child{order:2;}
-  .contact-item:last-child{order:1;}
   
   .contact-grid .card{padding:16px;}
   .contact-grid .card p{font-size:14px;}
@@ -576,7 +575,19 @@ Wir freuen uns darauf, Sie kompetent, persönlich und mit viel Engagement medizi
 </section>
 
 
-  <div class="contact-grid" id="contact">
+ <div class="contact-grid" id="contact">
+
+    <div class="contact-item">
+      <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:10px; flex:1;">
+  <h2 style="margin-top:0; margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid #e0f4ff; color:var(--sky-600);">Online-Rezeption</h2>
+        <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="rezept-btn">Kalender Termin vereinbaren</a>
+        <a class="rezept-btn" id="btn-befund">Befund anfordern</a>
+        <a class="rezept-btn" id="btn-rezept">Rezept anfordern</a>
+        <a class="rezept-btn" id="btn-ueberweisung">Überweisung anfordern</a>
+        <a class="rezept-btn" id="btn-notfall">Notfall-Hilfe</a>
+      </div>
+    </div>
+
     <div class="contact-item">
 <div class="card">
   <h2 style="margin-top:0; margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid #e0f4ff; color:var(--sky-600);">Kontakt & Lage</h2>
@@ -593,16 +604,6 @@ Wir freuen uns darauf, Sie kompetent, persönlich und mit viel Engagement medizi
       </div>
     </div>
 
-    <div class="contact-item">
-      <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:10px; flex:1;">
-  <h2 style="margin-top:0; margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid #e0f4ff; color:var(--sky-600);">Online-Rezeption</h2>
-        <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="rezept-btn">Kalender Termin vereinbaren</a>
-        <a class="rezept-btn" id="btn-befund">Befund anfordern</a>
-        <a class="rezept-btn" id="btn-rezept">Rezept anfordern</a>
-        <a class="rezept-btn" id="btn-ueberweisung">Überweisung anfordern</a>
-        <a class="rezept-btn" id="btn-notfall">Notfall-Hilfe</a>
-      </div>
-    </div>
   </div>
 </section>
 </div>
@@ -948,6 +949,7 @@ if (closeVideo) {
 </script>
 </body>
 </html>
+
 
 
 
