@@ -27,9 +27,7 @@ header { display: grid; grid-template-columns: 1fr auto; align-items: center; ga
 .logo-desktop { display: block; }
 .brand h1{margin:0;font-size:40px;color: #003366;}
 .brand p.lead{margin:0;color:var(--muted);font-size:18px;}
-@media (max-width:900px){
-  .brand p.lead{font-size:12px;}
-}
+
 .nav-bar { display: flex; justify-content: space-between; align-items: center; background-color: #e0f4ff; padding: 15px 0; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
 .nav-bar-inner { max-width: var(--container); margin: 0 auto; padding: 0 28px; display: flex; justify-content: space-between; align-items: center; width: 100%; }
 .nav-links { display: flex; gap: 25px; align-items: center; }
@@ -61,7 +59,7 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   .logo-desktop{display:none;}
   .logo-mobile{display:block;}
   .brand h1{font-size:34px;}
-  .brand p.lead{font-size:15px;}
+  .brand p.lead{font-size:13px;}
   .nav-bar-inner{padding:0 16px;flex-direction:column;gap:12px;}
   .nav-links{flex-direction:column;gap:8px;width:100%;align-items:stretch;}
   .nav-bar a{text-align:center;padding:10px 12px;}
@@ -221,6 +219,7 @@ if (window.innerWidth <= 900) {
 </body>
 
 </html>
+
 
 
 
