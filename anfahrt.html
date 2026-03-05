@@ -209,10 +209,16 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+// Auf Mobile automatisch nach unten scrollen
+if (window.innerWidth <= 900) {
+  window.scrollTo({ top: 300, behavior: 'smooth' });
+}
 </script>
 </body>
 
 </html>
+
 
 
 
